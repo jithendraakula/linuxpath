@@ -91,6 +91,48 @@ body.theme-transitioning{
     --text3  var(--theme-dur,3.7s) ease-in-out;
 }
 
+
+/* ── Intro topic modal ── */
+#introModal{display:none;position:fixed;inset:0;z-index:1200;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.78);backdrop-filter:blur(4px)}
+#introModal.open{display:flex}
+#introModalBox{background:var(--bg2);border:1px solid var(--border);border-radius:16px;max-width:700px;width:100%;max-height:88vh;overflow-y:auto;padding:32px 32px 28px;position:relative}
+#introModalBox h2{font-size:21px;font-weight:800;color:var(--text);margin-bottom:5px}
+.im-sub{color:var(--text2);font-size:13px;margin-bottom:22px;line-height:1.6}
+.im-section{margin-bottom:20px}
+.im-section h3{font-size:11px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.im-body{font-size:13.5px;color:var(--text2);line-height:1.8}
+.im-body b{color:var(--text)}
+.im-code{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-family:var(--mono);font-size:12px;color:var(--green);margin:10px 0;white-space:pre;overflow-x:auto;line-height:1.65}
+.im-table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+.im-table th{text-align:left;padding:6px 10px;color:var(--text3);border-bottom:1px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+.im-table td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+.im-table td:first-child{color:var(--green);font-family:var(--mono);white-space:nowrap}
+.im-tag{display:inline-block;background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:1px 8px;font-size:11px;font-family:var(--mono);color:var(--yellow);margin:2px 2px}
+#introModalClose{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text2);font-size:20px;cursor:pointer;padding:4px 8px;border-radius:4px}
+#introModalClose:hover{color:var(--text);background:var(--bg3)}
+.learn-topic-arrow{color:var(--text3);font-size:11px;flex-shrink:0}
+
+
+/* ── Intro topic modal ── */
+#introModal{display:none;position:fixed;inset:0;z-index:1200;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.78);backdrop-filter:blur(4px)}
+#introModal.open{display:flex}
+#introModalBox{background:var(--bg2);border:1px solid var(--border);border-radius:16px;max-width:700px;width:100%;max-height:88vh;overflow-y:auto;padding:32px 32px 28px;position:relative}
+#introModalBox h2{font-size:21px;font-weight:800;color:var(--text);margin-bottom:5px}
+.im-sub{color:var(--text2);font-size:13px;margin-bottom:22px;line-height:1.6}
+.im-section{margin-bottom:20px}
+.im-section h3{font-size:11px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.im-body{font-size:13.5px;color:var(--text2);line-height:1.8}
+.im-body b{color:var(--text)}
+.im-code{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-family:var(--mono);font-size:12px;color:var(--green);margin:10px 0;white-space:pre;overflow-x:auto;line-height:1.65}
+.im-table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+.im-table th{text-align:left;padding:6px 10px;color:var(--text3);border-bottom:1px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+.im-table td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+.im-table td:first-child{color:var(--green);font-family:var(--mono);white-space:nowrap}
+.im-tag{display:inline-block;background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:1px 8px;font-size:11px;font-family:var(--mono);color:var(--yellow);margin:2px 2px}
+#introModalClose{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text2);font-size:20px;cursor:pointer;padding:4px 8px;border-radius:4px}
+#introModalClose:hover{color:var(--text);background:var(--bg3)}
+.learn-topic-arrow{color:var(--text3);font-size:11px;flex-shrink:0}
+
 /* ── Rain overlay ── */
 #themeOverlay{
   position:fixed;inset:0;z-index:9999;
@@ -483,6 +525,22 @@ body.light .challenge-input-row{background:var(--bg3);}
 <div id="themeOverlay"></div>
 <div class="sidebar-strip" id="sidebarStrip"></div>
 <div class="overlay" id="overlay"></div>
+<!-- Intro topic modal -->
+<div id="introModal" onclick="if(event.target===this)closeIntroModal()">
+  <div id="introModalBox">
+    <button id="introModalClose" onclick="closeIntroModal()">&#10005;</button>
+    <div id="introModalContent"></div>
+  </div>
+</div>
+
+<!-- Intro topic modal -->
+<div id="introModal" onclick="if(event.target===this)closeIntroModal()">
+  <div id="introModalBox">
+    <button id="introModalClose" onclick="closeIntroModal()">&#10005;</button>
+    <div id="introModalContent"></div>
+  </div>
+</div>
+
 <div id="searchDropdown"></div>
 <div class="app">
 <aside class="sidebar" id="sidebar">
@@ -655,20 +713,20 @@ body.light .challenge-input-row{background:var(--bg3);}
     <!-- Credits inline -->
     <div style="display:flex;align-items:center;gap:6px;font-size:10px;flex-wrap:wrap">
       <span style="color:var(--text3);letter-spacing:.8px;text-transform:uppercase;font-size:9px">🎓 Guided By</span>
-      <span style="color:var(--cyan);font-weight:700">Prof. K. Srinivasa Rao</span>
+      <span style="color:var(--cyan);font-weight:700">Prof. Mr. P. Venkata Rajulu</span>
       <span style="color:var(--text3)">· CSE</span>
       <span style="color:var(--border);margin:0 4px">|</span>
       <span style="color:var(--text3);letter-spacing:.8px;text-transform:uppercase;font-size:9px">👥 Built By</span>
-      <span style="color:var(--green)">Ravi Kumar</span>
+      <span style="color:var(--green)">Jithendra Akula</span>
       <span style="color:var(--text3)">·</span>
-      <span style="color:var(--green)">Priya Sharma</span>
+      <span style="color:var(--green)">Swapnika krishna</span>
       <span style="color:var(--text3)">·</span>
-      <span style="color:var(--green)">Arun Reddy</span>
+      <span style="color:var(--green)">Chethana</span>
     </div>
 
     <!-- GitHub + copyright -->
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="https://github.com/yourusername/linuxpath" target="_blank"
+      <a href="https://github.com/jithendraakula/linuxpath" target="_blank"
          style="display:inline-flex;align-items:center;gap:5px;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:4px 10px;color:var(--text2);text-decoration:none;font-size:10px;transition:all .2s"
          onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'"
          onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">
@@ -2213,6 +2271,259 @@ const LEARN_MODULES=[
   {title:'Advanced Commands',icon:'🚀',badge:'advanced',topics:Object.entries(COMMANDS).filter(([,v])=>v.cat==='Advanced').map(([k])=>k)},
   {title:'Shell Scripting',icon:'📜',badge:'scripting',isIntro:true,topics:['Variables & Quoting: x="hello"; echo $x','Conditionals: if [ $x -gt 5 ]; then ... fi','Loops: for i in $(seq 1 10); do ... done','Functions: myfunc() { ...; }','Script Arguments: $1 $2 $@ $#','Exit Codes: 0=success, non-zero=error','Shebang: #!/bin/bash on first line']},
 ];
+
+// =================== INTRO TOPIC DATA ===================
+const IT = {
+  "What is Linux?": {
+    icon: "🐧",
+    summary: "Linux is a free, open-source operating system kernel created by Linus Torvalds in 1991. It powers servers, phones, clouds, and supercomputers.",
+    sections: [
+      { h: "What is it?",
+        body: "Linux is an <b>open-source operating system kernel</b> — the core layer managing hardware, memory, processes and file systems. Unlike Windows or macOS, Linux is free to use, modify and distribute. The full OS is called <b>GNU/Linux</b>." },
+      { h: "Why it matters",
+        body: "Linux powers <b>96% of the world's top web servers</b>, all Android phones, most cloud infrastructure (AWS, GCP, Azure), supercomputers, routers, and embedded devices. It is essential knowledge for any developer, sysadmin, or DevOps engineer." },
+      { h: "Key characteristics",
+        body: "<b>Open source</b> — anyone can read, modify, and share the code.<br><b>Multi-user</b> — many users can run sessions simultaneously.<br><b>Multi-tasking</b> — runs hundreds of processes at once.<br><b>Secure</b> — strong permission model, no executables run without permission.<br><b>Stable</b> — servers commonly run for years without rebooting." },
+      { h: "Quick comparison",
+        table: { heads: ["Feature","Linux","Windows","macOS"],
+                 rows: [["Cost","Free","Paid","Free (Apple HW)"],["Open source","Yes","No","Partially"],["Customisable","Highly","Limited","Limited"],["Common use","Servers, cloud, dev","Desktop, gaming","Design, dev"]] } }
+    ]
+  },
+  "Linux Distributions (Ubuntu, Debian, Fedora, Arch)": {
+    icon: "📦",
+    summary: "A Linux distribution (distro) bundles the Linux kernel with a package manager, desktop environment, and default apps to make a complete usable OS.",
+    sections: [
+      { h: "What is a distro?",
+        body: "The Linux kernel alone is just the core. A <b>distribution</b> packages the kernel with a package manager, desktop environment, system tools and default applications. There are 600+ distros targeting different use cases." },
+      { h: "Major distributions",
+        table: { heads: ["Distro","Based on","Package manager","Best for"],
+                 rows: [["Ubuntu","Debian","apt","Beginners, servers"],["Debian","Independent","apt","Stability, servers"],["Fedora","Red Hat","dnf","Cutting-edge, devs"],["Arch Linux","Independent","pacman","Advanced users"],["CentOS/RHEL","Red Hat","yum/dnf","Enterprise"],["Kali Linux","Debian","apt","Security testing"],["Alpine Linux","Independent","apk","Docker containers"]] } },
+      { h: "Package managers",
+        body: "Package managers install, update and remove software automatically:<br><span class=\"im-tag\">apt install nginx</span> Debian/Ubuntu<br><span class=\"im-tag\">dnf install nginx</span> Fedora/RHEL<br><span class=\"im-tag\">pacman -S nginx</span> Arch<br><span class=\"im-tag\">apk add nginx</span> Alpine" },
+      { h: "Which should you start with?",
+        body: "<b>Ubuntu</b> is the best starting point — most tutorials target it, it has a huge community, and it is the most common server OS. Skills transfer to any distro once you are comfortable." }
+    ]
+  },
+  "The File System Structure (/, /home, /etc, /var)": {
+    icon: "🗂️",
+    summary: "Linux organises everything in one tree starting from / (root). Every file, device and process lives somewhere in this tree — there are no drive letters.",
+    sections: [
+      { h: "Single root tree",
+        body: "Unlike Windows (C:\\, D:\\), Linux has a <b>single root /</b>. Everything — files, external drives, network mounts, devices — appears somewhere under /. Drives are mounted as directories, not letters." },
+      { h: "Key directories",
+        table: { heads: ["Directory","Purpose"],
+                 rows: [["/","Root of the entire filesystem"],["/home","User home directories — /home/alice, /home/bob"],["/etc","System configuration files (plain text, editable)"],["/var","Variable data: logs (/var/log), databases, mail"],["/tmp","Temporary files, cleared on reboot"],["/usr","User programs and libraries (/usr/bin, /usr/lib)"],["/bin","Essential commands: ls, cp, mv, grep"],["/sbin","System-admin commands (root only)"],["/dev","Device files — disks, terminals, USB drives"],["/proc","Virtual filesystem: live kernel and process info"],["/opt","Optional third-party software"]] } },
+      { h: "Paths",
+        code: "/home/alice/docs/report.txt   # absolute — starts from /\ndocs/report.txt               # relative — from current dir\n~/docs/report.txt             # ~ means your home directory" },
+      { h: "Tip",
+        body: "Run <b>ls /</b> in the terminal to see the top-level directories on any Linux system." }
+    ]
+  },
+  "What is a Terminal / Shell?": {
+    icon: "💻",
+    summary: "The terminal is the window you type in. The shell is the program inside it that reads your commands and executes them.",
+    sections: [
+      { h: "Terminal vs Shell",
+        body: "<b>Terminal emulator</b> — the window/app you type in. Examples: GNOME Terminal, Windows Terminal, iTerm2, xterm.<br><br><b>Shell</b> — the program running inside the terminal that interprets commands. The most common shell is <b>bash</b>." },
+      { h: "Why use a terminal?",
+        body: "<b>Speed</b> — one command does what 10 GUI clicks would.<br><b>Automation</b> — chain commands, write scripts, schedule tasks.<br><b>Remote access</b> — SSH into any server anywhere in the world.<br><b>Power</b> — access every OS feature, not just what has a button." },
+      { h: "Key concepts",
+        table: { heads: ["Concept","Meaning"],
+                 rows: [["Prompt","The $ (user) or # (root) symbol where you type"],["Command","The program you run: ls, grep, cd"],["Argument","Input to the command: ls /home"],["Flag/Option","Modifier starting with -: ls -la"],["stdin","Standard input (keyboard or piped data)"],["stdout","Standard output (what prints on screen)"],["stderr","Error output (error messages shown separately)"]] } },
+      { h: "First commands to try",
+        code: "pwd          # print working directory\nls           # list files\ncd /tmp      # change directory\necho hello   # print text\nclear        # clear the screen" }
+    ]
+  },
+  "bash vs sh vs zsh": {
+    icon: "🐚",
+    summary: "sh, bash, and zsh are all shells — programs that read and execute commands. They differ in features, speed and compatibility.",
+    sections: [
+      { h: "sh — the original",
+        body: "<b>sh</b> (Bourne Shell, 1979) is the original Unix shell. Very minimal — no arrays, limited features. Every Linux/Unix system has it at <b>/bin/sh</b>. Scripts written for sh are maximally portable." },
+      { h: "bash — the standard",
+        body: "<b>bash</b> (Bourne Again Shell, 1989) is the default on most Linux distros. Adds tab-completion, command history, arrays and more. When tutorials say write a shell script, they almost always mean bash." },
+      { h: "zsh — the modern choice",
+        body: "<b>zsh</b> is the default shell on macOS since 2019. More powerful than bash with better tab-completion, themes and plugin support. <b>Oh My Zsh</b> is a popular framework that makes zsh highly customisable." },
+      { h: "Comparison",
+        table: { heads: ["Shell","Speed","Features","Best for"],
+                 rows: [["sh","Fastest","Minimal","Portable scripts"],["bash","Fast","Full-featured","Linux scripting, default"],["zsh","Moderate","Rich + plugins","Interactive use, macOS"],["fish","Moderate","Beginner-friendly","New users, auto-suggestions"]] } },
+      { h: "Check your shell",
+        code: "echo $SHELL     # which shell you are using now\nbash --version  # bash version number\ncat /etc/shells # list all installed shells" }
+    ]
+  },
+  "Root vs Regular User": {
+    icon: "🔐",
+    summary: "Linux has a strict permission model. Root is the superuser with total control. Regular users are restricted for security.",
+    sections: [
+      { h: "Root user",
+        body: "The <b>root</b> account (UID 0) has unrestricted access to everything — can read any file, kill any process, install software, change any setting. The prompt shows <b>#</b> instead of <b>$</b> when you are root." },
+      { h: "Regular user",
+        body: "Normal users can only access their own files and home directory. They cannot modify system files, install software system-wide, or interfere with other users. The prompt shows <b>$</b>." },
+      { h: "sudo — safe temporary root",
+        body: "<b>sudo</b> (superuser do) lets authorised users run a single command as root without switching to the root account. This is the standard safe approach on Ubuntu and most modern distros." },
+      { h: "Common sudo commands",
+        code: "sudo apt install nginx          # install software\nsudo systemctl restart nginx    # restart a service\nsudo nano /etc/hosts            # edit a system file\nsudo su -                       # open a root shell (use carefully)" },
+      { h: "Why not always use root?",
+        body: "Running as root is dangerous — a typo like <b>rm -rf /</b> destroys the entire system. The <b>principle of least privilege</b> means: use the minimum permissions needed. Use sudo only when necessary." },
+      { h: "Permission model",
+        table: { heads: ["Who","Symbol","Description"],
+                 rows: [["Owner","u","Read/write/execute own files"],["Group","g","Shared access within a team group"],["Others","o","Everyone else on the system"],["Root","#","Bypasses all permission checks"]] } }
+    ]
+  },
+  "Absolute vs Relative Paths": {
+    icon: "📍",
+    summary: "A path describes where a file lives. Absolute paths start from /, relative paths start from your current directory.",
+    sections: [
+      { h: "Absolute paths",
+        body: "An <b>absolute path</b> starts with <b>/</b> and gives the full location from the root. It works from any directory regardless of where you currently are." },
+      { h: "Relative paths",
+        body: "A <b>relative path</b> starts from your <b>current working directory</b> (check with pwd). It uses <b>.</b> for current directory and <b>..</b> for parent directory." },
+      { h: "Examples",
+        code: "# You are in /home/alice\n\n# Absolute — works from anywhere\ncd /etc/nginx\ncat /var/log/syslog\n\n# Relative — depends on current location\ncd documents          # goes to /home/alice/documents\ncat ../bob/readme.txt # up one level, then into bob/\nls .                  # list current directory\nls ..                 # list parent directory" },
+      { h: "Special path symbols",
+        table: { heads: ["Symbol","Meaning","Example"],
+                 rows: [["/","Root of filesystem","cd /"],["~","Your home directory","cd ~/documents"],[ ".","Current directory","ls ."],["..","Parent directory","cd .."],[ "-","Previous directory","cd -"]] } }
+    ]
+  },
+  "Variables & Quoting: x=\"hello\"; echo $x": {
+    icon: "📝",
+    summary: "Variables store values in shell scripts. Quoting controls how the shell interprets special characters.",
+    sections: [
+      { h: "Assigning and using variables",
+        body: "Assign with <b>=</b> (no spaces around it). Access the value with <b>$</b>. Variable names are case-sensitive." },
+      { h: "Assignment examples",
+        code: "name=\"Alice\"\nage=30\necho $name          # Alice\necho \"Hello $name\"   # Hello Alice  (double quotes: expands vars)\necho 'Hello $name'   # Hello $name  (single quotes: no expansion)" },
+      { h: "Quoting rules",
+        table: { heads: ["Quote type","Expands $var","Use when"],
+                 rows: [["Double \"...\"","Yes","Most cases — allows variable expansion"],["Single '...'","No","Literal strings — no substitution"],["$( )","N/A","Command substitution: result=$(ls)"],["Backtick `...`","N/A","Old command substitution style (avoid)"]] } },
+      { h: "Special variables",
+        code: "$0    # script name\n$1 $2 # first, second argument passed in\n$@    # all arguments\n$#    # number of arguments\n$?    # exit code of last command\n$$    # PID of current process" }
+    ]
+  },
+  "Conditionals: if [ $x -gt 5 ]; then ... fi": {
+    icon: "🔀",
+    summary: "if statements let scripts make decisions. Conditions test numbers, strings, or file existence.",
+    sections: [
+      { h: "Basic if syntax",
+        code: "if [ condition ]; then\n  # commands if true\nelif [ other_condition ]; then\n  # commands if elif true\nelse\n  # commands if all false\nfi" },
+      { h: "Numeric comparisons",
+        table: { heads: ["Operator","Meaning"],
+                 rows: [["-eq","Equal to"],["-ne","Not equal"],["-gt","Greater than"],["-lt","Less than"],["-ge","Greater than or equal"],["-le","Less than or equal"]] } },
+      { h: "String and file tests",
+        code: "[ \"$a\" = \"$b\" ]   # strings are equal\n[ -z \"$a\" ]       # string is empty\n[ -n \"$a\" ]       # string is not empty\n[ -f file.txt ]   # file exists and is a regular file\n[ -d /etc ]       # directory exists\n[ -x script.sh ]  # file is executable" },
+      { h: "Practical example",
+        code: "score=85\nif [ $score -ge 90 ]; then\n  echo \"A grade\"\nelif [ $score -ge 70 ]; then\n  echo \"B grade\"\nelse\n  echo \"Below B\"\nfi" }
+    ]
+  },
+  "Loops: for i in $(seq 1 10); do ... done": {
+    icon: "🔁",
+    summary: "Loops repeat commands. bash has for, while, and until loops.",
+    sections: [
+      { h: "for loop — sequence",
+        code: "for i in $(seq 1 5); do\n  echo \"Number: $i\"\ndone" },
+      { h: "for loop — over files",
+        code: "for file in *.txt; do\n  echo \"Processing $file\"\ndone" },
+      { h: "while loop",
+        code: "count=1\nwhile [ $count -le 5 ]; do\n  echo \"Count: $count\"\n  ((count++))\ndone" },
+      { h: "Loop control keywords",
+        table: { heads: ["Keyword","Effect"],
+                 rows: [["break","Exit the loop immediately"],["continue","Skip to the next iteration"]] } },
+      { h: "Practical example",
+        code: "# Backup all log files\nfor f in /var/log/*.log; do\n  cp \"$f\" \"$f.bak\"\n  echo \"Backed up $f\"\ndone" }
+    ]
+  },
+  "Functions: myfunc() { ...; }": {
+    icon: "🧩",
+    summary: "Functions group reusable commands. They accept arguments and return exit codes.",
+    sections: [
+      { h: "Defining a function",
+        code: "greet() {\n  echo \"Hello, $1!\"\n}" },
+      { h: "Calling with arguments",
+        code: "greet \"Alice\"    # Hello, Alice!\ngreet \"Bob\"      # Hello, Bob!\n\nadd() {\n  echo $(( $1 + $2 ))\n}\nadd 3 4          # 7" },
+      { h: "Return values",
+        body: "Functions return <b>exit codes</b> (0 = success, non-zero = error), not data values. To return a data value, use <b>echo</b> inside the function and capture it with <b>$( )</b>." },
+      { h: "Complete example",
+        code: "is_even() {\n  if (( $1 % 2 == 0 )); then\n    return 0   # 0 = true/success\n  else\n    return 1   # 1 = false/error\n  fi\n}\n\nis_even 4 && echo \"even\" || echo \"odd\"" }
+    ]
+  },
+  "Script Arguments: $1 $2 $@ $#": {
+    icon: "📨",
+    summary: "Scripts receive input as positional parameters. $1 is the first argument, $2 the second, $@ is all arguments, $# is the count.",
+    sections: [
+      { h: "Positional parameters",
+        code: "#!/bin/bash\n# Run as: bash greet.sh Alice 25\necho \"Script: $0\"\necho \"Name:   $1\"\necho \"Age:    $2\"\necho \"All:    $@\"\necho \"Count:  $#\"" },
+      { h: "All special variables",
+        table: { heads: ["Variable","Meaning"],
+                 rows: [["$0","Script name"],["$1 .. $9","Positional arguments 1 through 9"],["${10}","10th argument (braces required beyond 9)"],["$@","All arguments as separate quoted words"],["$*","All arguments as a single string"],["$#","Number of arguments provided"],["$?","Exit code of the last command"],["$$","PID of the current script process"]] } },
+      { h: "Validate required arguments",
+        code: "if [ $# -lt 2 ]; then\n  echo \"Usage: $0 <name> <age>\"\n  exit 1\nfi\necho \"Hello $1, you are $2 years old.\"" }
+    ]
+  },
+  "Exit Codes: 0=success, non-zero=error": {
+    icon: "🚦",
+    summary: "Every command returns an exit code when it finishes. 0 means success. Any other number means an error occurred.",
+    sections: [
+      { h: "What are exit codes?",
+        body: "When a command finishes, it returns a number from 0 to 255. <b>0 = success</b>. Any <b>non-zero = error</b>. You check the last exit code with the special variable <b>$?</b>." },
+      { h: "Checking exit codes",
+        code: "ls /tmp\necho $?          # 0 — success\n\nls /nonexistent\necho $?          # 2 — no such file\n\ngrep \"foo\" empty.txt\necho $?          # 1 — no match" },
+      { h: "Common exit codes",
+        table: { heads: ["Code","Meaning"],
+                 rows: [["0","Success"],["1","General error"],["2","Misuse / no such file or directory"],["126","Command found but not executable"],["127","Command not found"],["128+N","Killed by signal N (130 = Ctrl+C)"],["255","Exit status out of range"]] } },
+      { h: "Using exit codes in scripts",
+        code: "# && runs next only if previous succeeded\ncd /tmp && echo \"Changed dir OK\"\n\n# || runs next only if previous failed  \ncd /nope || echo \"Failed — staying here\"\n\n# Exit from a script with a code\nexit 0   # report success\nexit 1   # report error" }
+    ]
+  },
+  "Shebang: #!/bin/bash on first line": {
+    icon: "⚡",
+    summary: "The shebang line (#!) on line 1 tells the OS which interpreter to use to run a script.",
+    sections: [
+      { h: "What is the shebang?",
+        body: "The first line starting with <b>#!</b> (hash-bang) tells the kernel which program should execute the rest of the file. Without it, the OS does not know the file is a bash script." },
+      { h: "Common shebangs",
+        code: "#!/bin/bash             # use bash\n#!/bin/sh               # use sh (most portable)\n#!/usr/bin/env python3   # use python3 from PATH\n#!/usr/bin/env node      # use Node.js from PATH" },
+      { h: "Why /usr/bin/env bash?",
+        body: "<b>/usr/bin/env bash</b> searches PATH for bash rather than assuming it is at /bin/bash. This makes scripts more portable across macOS, BSD and Linux systems where bash may be installed in a different location." },
+      { h: "Making and running a script",
+        code: "# 1. Create the script\nnano hello.sh\n\n# 2. Contents:\n#!/bin/bash\necho \"Hello from script!\"\n\n# 3. Make executable\nchmod +x hello.sh\n\n# 4. Run it\n./hello.sh\n# Hello from script!" }
+    ]
+  }
+};
+
+const IT_KEYS = Object.keys(IT);
+function openIntroTopic(idx) {
+  var key = IT_KEYS[idx];
+  var data = IT[key];
+  if (!data) return;
+  var c = document.getElementById("introModalContent");
+  var title = key.split(":")[0].split("(")[0].trim();
+  var html = "<div style=\"display:flex;align-items:center;gap:12px;margin-bottom:6px\">"
+    + "<span style=\"font-size:34px\">" + data.icon + "</span>"
+    + "<h2>" + escHtml(title) + "</h2></div>"
+    + "<div class=\"im-sub\">" + escHtml(data.summary) + "</div>";
+  data.sections.forEach(function(s) {
+    html += "<div class=\"im-section\"><h3>" + escHtml(s.h) + "</h3>";
+    if (s.body) html += "<div class=\"im-body\">" + s.body + "</div>";
+    if (s.code) html += "<div class=\"im-code\">" + escHtml(s.code) + "</div>";
+    if (s.table) {
+      html += "<table class=\"im-table\"><thead><tr>"
+        + s.table.heads.map(function(h){ return "<th>" + escHtml(h) + "</th>"; }).join("")
+        + "</tr></thead><tbody>"
+        + s.table.rows.map(function(r){ return "<tr>" + r.map(function(cell){ return "<td>" + escHtml(cell) + "</td>"; }).join("") + "</tr>"; }).join("")
+        + "</tbody></table>";
+    }
+    html += "</div>";
+  });
+  c.innerHTML = html;
+  document.getElementById("introModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeIntroModal() {
+  document.getElementById("introModal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeIntroModal(); });
+
 function renderLearn(){
   const c=document.getElementById('learnGrid');
   if(!c)return;
@@ -2227,7 +2538,7 @@ function renderLearn(){
       </div>
       <div class="learn-topic-list">
         ${mod.topics.map(t=>mod.isIntro||mod.badge==='scripting'
-          ?`<div class="learn-topic" style="cursor:default">${escHtml(t)}</div>`
+          ?`<div class="learn-topic" onclick="openIntroTopic(${IT_KEYS.indexOf(t)})">${escHtml(t)}<span class="learn-topic-arrow">→</span></div>`
           :`<div class="learn-topic" onclick="if(!termInst)termInst=new Terminal('terminalBody');openCommandDetail('${t}');navigate('cmddetail');">${escHtml(t)} <code>${t}</code></div>`
         ).join('')}
       </div>
