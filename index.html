@@ -133,6 +133,54 @@ body.theme-transitioning{
 #introModalClose:hover{color:var(--text);background:var(--bg3)}
 .learn-topic-arrow{color:var(--text3);font-size:11px;flex-shrink:0}
 
+
+/* ══ COMPARE PAGE ══════════════════════════════════════════════ */
+.compare-picker{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;margin-bottom:32px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:22px}
+.compare-picker label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:6px}
+.compare-select{background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--mono);font-size:13px;padding:9px 14px;outline:none;cursor:pointer;min-width:180px}
+.compare-select:focus{border-color:var(--green)}
+.compare-btn{background:var(--green);color:var(--bg);border:none;border-radius:8px;font-family:var(--sans);font-weight:700;font-size:13px;padding:10px 22px;cursor:pointer;transition:opacity .15s}
+.compare-btn:hover{opacity:.85}
+.compare-btn.clear{background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:24px}
+.compare-col{padding:0}
+.compare-col-header{padding:18px 22px;font-family:var(--mono);font-size:18px;font-weight:700;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
+.compare-col:first-child .compare-col-header{background:linear-gradient(135deg,rgba(0,255,136,.12),transparent);color:var(--green)}
+.compare-col:last-child .compare-col-header{background:linear-gradient(135deg,rgba(0,212,255,.12),transparent);color:var(--cyan);border-left:1px solid var(--border)}
+.compare-col:last-child{border-left:1px solid var(--border)}
+.compare-row{padding:14px 22px;border-bottom:1px solid var(--border);font-size:13px}
+.compare-row:last-child{border-bottom:none}
+.compare-row-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
+.compare-row-val{color:var(--text2);line-height:1.6}
+.compare-row-val code{font-family:var(--mono);font-size:12px;color:var(--green);background:var(--bg3);padding:1px 6px;border-radius:3px}
+.compare-row-val.mono{font-family:var(--mono);font-size:12px;color:var(--cyan)}
+.compare-verdict{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:24px}
+.compare-verdict h3{font-size:13px;font-weight:700;color:var(--yellow);margin-bottom:14px;text-transform:uppercase;letter-spacing:.06em}
+.verdict-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.verdict-row:last-child{border-bottom:none}
+.verdict-badge{flex-shrink:0;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:2px 9px;font-family:var(--mono);font-size:11px;color:var(--green);white-space:nowrap}
+.verdict-text{color:var(--text2);line-height:1.6}
+.compare-quick-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.compare-quick-btn{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:12px;font-family:var(--mono);color:var(--text2);cursor:pointer;transition:all .15s}
+.compare-quick-btn:hover{border-color:var(--green);color:var(--green)}
+.compare-empty{text-align:center;padding:60px 20px;color:var(--text3)}
+.compare-empty .big{font-size:48px;margin-bottom:12px}
+
+/* ══ CHEAT SHEET PAGE ═══════════════════════════════════════════ */
+.cs-search-wrap{position:sticky;top:0;z-index:10;background:var(--bg);padding:0 0 18px;margin-bottom:4px}
+.cs-search{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:13px;padding:11px 16px;outline:none;box-sizing:border-box}
+.cs-search:focus{border-color:var(--green)}
+.cs-cat-label{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;padding:10px 0 8px;border-bottom:1px solid var(--border);margin-bottom:2px}
+.cs-table{width:100%;border-collapse:collapse;margin-bottom:28px}
+.cs-table tr{border-bottom:1px solid var(--border);transition:background .1s;cursor:pointer}
+.cs-table tr:hover{background:var(--bg2)}
+.cs-table tr:last-child{border-bottom:none}
+.cs-table td{padding:10px 12px;font-size:13px;vertical-align:top}
+.cs-cmd{font-family:var(--mono);font-weight:600;color:var(--green);white-space:nowrap;width:130px}
+.cs-desc{color:var(--text);width:240px}
+.cs-usage{font-family:var(--mono);font-size:11px;color:var(--cyan)}
+.cs-arrow{color:var(--text3);font-size:11px;text-align:right;padding-right:8px}
+
 /* ── Rain overlay ── */
 #themeOverlay{
   position:fixed;inset:0;z-index:9999;
@@ -223,9 +271,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .sidebar-toggle-btn:hover,.sidebar-toggle-btn.active{border-color:var(--green);color:var(--green);background:var(--bg3);}
 /* Glow on nav items */
 .nav-item{display:flex;align-items:center;gap:9px;padding:9px 18px;cursor:pointer;font-size:13px;font-weight:500;color:var(--text2);transition:all .18s;border-left:3px solid transparent;position:relative;}
-.nav-item:hover{color:var(--text);background:var(--bg3);border-left-color:var(--green);}
-.nav-item:hover::after{content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:radial-gradient(ellipse at left,rgba(0,255,136,0.07) 0%,transparent 70%);pointer-events:none;}
+.nav-item:hover{color:var(--green);background:var(--bg3);border-left-color:var(--green);}
+.nav-item:hover::after{content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:radial-gradient(ellipse at left,rgba(0,255,136,0.13) 0%,transparent 70%);pointer-events:none;}
 .nav-item.active{color:var(--green);background:linear-gradient(90deg,rgba(0,255,136,0.12) 0%,transparent 80%);border-left-color:var(--green);}
+
 .sidebar-logo{padding:14px 16px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .logo-mark{display:flex;align-items:center;gap:10px}
 .logo-icon{width:32px;height:32px;background:var(--green);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--bg);flex-shrink:0}
@@ -499,7 +548,7 @@ body.light .challenge-input-row{background:var(--bg3);}
 .filter-group-subtitle{font-size:12px;color:var(--text3);font-family:var(--mono)}
 .filter-group-body{padding:16px 20px}
 /* QUICK ACCESS */
-.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:32px}
+.quick-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:32px}
 .quick-item{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:16px 14px;cursor:pointer;transition:all .15s;text-align:center}
 .quick-item:hover{border-color:var(--green);transform:translateY(-2px)}
 .quick-item-icon{font-size:24px;margin-bottom:8px}
@@ -513,7 +562,7 @@ body.light .challenge-input-row{background:var(--bg3);}
   #siteFooter{margin-left:0}
   .page{padding:70px 16px 24px}.cards-grid,.learn-grid{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:repeat(2,1fr)}.cmd-grid{grid-template-columns:repeat(2,1fr)}
-  .quick-grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:32px}
+  .quick-grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:32px}
 }
 </style>
 </head>
@@ -560,6 +609,8 @@ body.light .challenge-input-row{background:var(--bg3);}
     <div class="nav-item active" data-page="home"><span class="nav-icon">🏠</span> Home</div>
     <div class="nav-section-label">Learn</div>
     <div class="nav-item" data-page="learn"><span class="nav-icon">📚</span> Modules</div>
+    <div class="nav-item" data-page="compare"><span class="nav-icon">⚖️</span> Compare</div>
+    <div class="nav-item" data-page="cheatsheet"><span class="nav-icon">📋</span> Cheat Sheet</div>
     <div class="nav-item" data-page="cmdlist"><span class="nav-icon">🗂️</span> Commands</div>
     <div class="nav-item" data-page="filters"><span class="nav-icon">🔍</span> Filters</div>
     <div class="nav-section-label">Practice</div>
@@ -568,6 +619,7 @@ body.light .challenge-input-row{background:var(--bg3);}
     <div class="nav-section-label">Test</div>
     <div class="nav-item" data-page="quiz"><span class="nav-icon">🧠</span> Quiz</div>
     <div class="nav-item" data-page="errors"><span class="nav-icon">⚠️</span> Error Guide</div>
+
   </nav>
 </aside>
 <main class="main">
@@ -615,6 +667,8 @@ body.light .challenge-input-row{background:var(--bg3);}
     <div class="quick-item" onclick="navigate('quiz')"><div class="quick-item-icon">🧠</div><div class="quick-item-label">Quiz</div></div>
     <div class="quick-item" onclick="navigate('challenges')"><div class="quick-item-icon">🏆</div><div class="quick-item-label">Challenges</div></div>
     <div class="quick-item" onclick="navigate('errors')"><div class="quick-item-icon">⚠️</div><div class="quick-item-label">Error Guide</div></div>
+    <div class="quick-item" onclick="navigate('compare')"><div class="quick-item-icon">⚖️</div><div class="quick-item-label">Compare</div></div>
+    <div class="quick-item" onclick="navigate('cheatsheet')"><div class="quick-item-icon">📋</div><div class="quick-item-label">Cheat Sheet</div></div>
   </div>
 </div>
 
@@ -691,6 +745,16 @@ body.light .challenge-input-row{background:var(--bg3);}
 </div>
 
 <!-- ERRORS -->
+<div class="page" id="page-compare">
+  <div class="page-header"><h1>⚖️ <span>Command</span> Comparisons</h1><p>Select any two commands to see a side-by-side comparison — understand the difference, when to use each, and avoid confusion.</p></div>
+  <div id="compareContent"></div>
+</div>
+
+<div class="page" id="page-cheatsheet">
+  <div class="page-header"><h1>📋 <span>Cheat</span> Sheet</h1><p>Quick reference for all Linux commands. Click any command to see full details.</p></div>
+  <div id="cheatsheetContent"></div>
+</div>
+
 <div class="page" id="page-errors">
   <div class="page-header"><h1>⚠️ <span>Error</span> Guide</h1><p>Common Linux errors, their causes, and how to fix them.</p></div>
   <div id="errorsContent"></div>
@@ -726,7 +790,7 @@ body.light .challenge-input-row{background:var(--bg3);}
 
     <!-- GitHub + copyright -->
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="https://github.com/jithendraakula/linuxpath" target="_blank"
+      <a href="https://github.com/yourusername/linuxpath" target="_blank"
          style="display:inline-flex;align-items:center;gap:5px;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:4px 10px;color:var(--text2);text-decoration:none;font-size:10px;transition:all .2s"
          onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'"
          onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">
@@ -1884,6 +1948,8 @@ function navigate(page) {
   if(page==='quiz')initQuiz();
   if(page==='challenges')renderChallenges();
   if(page==='errors')renderErrors();
+  if(page==='compare')renderCompare();
+  if(page==='cheatsheet')renderCheatsheet();
   // Close sidebar on mobile only
   if(window.innerWidth<=768){
     const sb=document.getElementById('sidebar');
@@ -2625,7 +2691,7 @@ function openCommandDetail(name){
       <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
         <h1><span>${escHtml(name)}</span></h1>
         <span class="module-badge badge-${cmd.cat.toLowerCase().split(' ')[0]}">${cmd.cat}</span>
-        <button class="btn btn-secondary btn-small" onclick="navigate('cmdlist')">← Back</button>
+        <button class="btn btn-secondary btn-small" onclick="navigate(cheatsheetPrevPage||'cmdlist');cheatsheetPrevPage=null">← Back</button>
         <button class="btn btn-secondary btn-small" data-cmd="${cmd.examples&&cmd.examples[0]?escHtml(cmd.examples[0].cmd):name}" onclick="loadInTerminal(this.dataset.cmd)">▶ Try in Terminal</button>
       </div>
       <p style="margin-top:10px;font-size:15px">${escHtml(cmd.purpose)}</p>
@@ -2670,6 +2736,319 @@ function openCommandDetail(name){
       ${cmd.uses.map(u=>`<div style="display:flex;gap:9px;padding:5px 0;border-bottom:1px solid var(--border);font-size:13px"><span style="color:var(--green)">✓</span><code style="font-size:12px;color:var(--cyan);font-family:var(--mono)">${escHtml(u)}</code></div>`).join('')}
     </div>`:''}`;
 }
+
+// =================== COMPARE PAGE ===================
+const COMPARE_PAIRS = [
+  ['grep','egrep'],['grep','fgrep'],['grep','awk'],['grep','sed'],
+  ['find','ls'],['find','grep'],['cat','less'],['cat','head'],
+  ['head','tail'],['cp','mv'],['cp','rsync'],['rm','mv'],
+  ['sort','uniq'],['diff','comm'],['diff','cmp'],
+  ['sed','awk'],['cut','awk'],['sort','awk'],
+  ['chmod','chown'],['ps','top'],['df','du'],
+  ['ssh','curl'],['tar','cp'],['echo','cat'],
+  ['ls','find'],['mv','rename'],['wc','awk'],
+];
+
+const COMPARE_VERDICTS = {
+  'grep|egrep': [
+    {use:'grep','when':'Simple pattern matching in files — most common usage'},
+    {use:'egrep','when':'Multiple patterns with | (OR), + ? {} extended regex without backslashes'},
+    {note:'egrep = grep -E — both produce identical results, just different syntax preference'},
+  ],
+  'grep|fgrep': [
+    {use:'grep','when':'Pattern matching with regex — handles wildcards and special chars as regex'},
+    {use:'fgrep','when':'Searching for exact literal strings containing dots, brackets, stars (e.g., IP addresses, file paths)'},
+    {note:'fgrep = grep -F — dots in fgrep match a literal dot, not "any character" like in grep'},
+  ],
+  'grep|awk': [
+    {use:'grep','when':'Simply filtering lines that match a pattern — fast, single purpose'},
+    {use:'awk','when':'You need to filter AND process — extract columns, do math, conditionals'},
+    {note:'grep is faster and simpler; awk is a full programming language — use grep first, upgrade to awk when you need more'},
+  ],
+  'grep|sed': [
+    {use:'grep','when':'Finding and printing lines that match a pattern'},
+    {use:'sed','when':'Finding and transforming text — substitutions, deletions, insertions'},
+    {note:'grep reads, sed edits — if you need to change text, use sed; to just search, use grep'},
+  ],
+  'find|ls': [
+    {use:'ls','when':'Quick listing of files in the current or a specific directory'},
+    {use:'find','when':'Searching recursively, filtering by name/type/size/date, running commands on results'},
+    {note:'ls is for viewing what is here right now; find is for searching across a whole tree with conditions'},
+  ],
+  'find|grep': [
+    {use:'find','when':'Searching for files/directories by name, size, type, permissions, or date'},
+    {use:'grep','when':'Searching for text content inside files'},
+    {note:'find locates files by their properties; grep searches inside file content — they are often combined: find ... | xargs grep ...'},
+  ],
+  'cat|less': [
+    {use:'cat','when':'Viewing small files (configs, scripts) — dumps entire content instantly'},
+    {use:'less','when':'Viewing large files (logs, data) — pages through content, supports search with /'},
+    {note:'cat loads everything into terminal; less is interactive — use less for anything longer than your screen'},
+  ],
+  'cat|head': [
+    {use:'cat','when':'Viewing the complete file content'},
+    {use:'head','when':'Just previewing the top N lines — headers of CSVs, beginning of logs'},
+    {note:'head -n 1 to see just the header row of a file; cat for the whole thing'},
+  ],
+  'head|tail': [
+    {use:'head','when':'Viewing the beginning of a file — check CSV headers, see first log entries'},
+    {use:'tail','when':'Viewing the end of a file — most recent log entries; tail -f for live monitoring'},
+    {note:'Think: head = top of the file, tail = bottom. Use tail -f to watch a log file update live'},
+  ],
+  'cp|mv': [
+    {use:'cp','when':'Keeping the original — making a backup, duplicating a file'},
+    {use:'mv','when':'Moving or renaming — original is removed from source'},
+    {note:'cp leaves the source intact; mv does not. Use cp for backups before editing: cp file.conf file.conf.bak'},
+  ],
+  'rm|mv': [
+    {use:'mv','when':'You might need the file later — move it to /tmp or a backup folder'},
+    {use:'rm','when':'Permanently deleting — cannot be undone (no recycle bin in Linux)'},
+    {note:'Linux has no recycle bin by default. rm is permanent. When in doubt, mv to a temp location first'},
+  ],
+  'sort|uniq': [
+    {use:'sort','when':'Ordering lines alphabetically or numerically'},
+    {use:'uniq','when':'Removing or counting duplicate lines — but MUST be sorted first'},
+    {note:'These are a team: sort file.txt | uniq -c | sort -rn is the classic frequency analysis pipeline'},
+  ],
+  'diff|comm': [
+    {use:'diff','when':'Seeing exactly what changed between two file versions — shows added/removed lines'},
+    {use:'comm','when':'Set operations — find lines unique to file1, unique to file2, or common to both'},
+    {note:'diff is for change tracking; comm is for set math. Both require sorted input for accurate results'},
+  ],
+  'diff|cmp': [
+    {use:'diff','when':'Text files — shows which lines changed and how'},
+    {use:'cmp','when':'Binary files or quick equality check in scripts (exit code 0=same, 1=different)'},
+    {note:'cmp is byte-by-byte, fast and silent; diff is line-by-line and verbose — use cmp for scripts, diff for humans'},
+  ],
+  'sed|awk': [
+    {use:'sed','when':'Simple substitutions, line deletions, in-place file editing with a single transformation'},
+    {use:'awk','when':'Multi-column data processing, math on fields, conditional transformations, reports'},
+    {note:'sed is a stream editor (simple, fast); awk is a programming language (powerful, flexible). Complexity determines the choice'},
+  ],
+  'cut|awk': [
+    {use:'cut','when':'Simple fixed-delimiter column extraction — just need columns 1, 3 from a CSV'},
+    {use:'awk','when':'Column extraction with reordering, math, conditions, or different delimiters per line'},
+    {note:'cut cannot reorder columns or do math; awk can do everything cut does and more. Use cut when it is enough'},
+  ],
+  'sort|awk': [
+    {use:'sort','when':'Simply sorting lines — alphabetically, numerically, by field'},
+    {use:'awk','when':'Sorting with complex conditions, grouped aggregations, or as part of a larger data pipeline'},
+    {note:'sort is simpler and faster for pure sorting; awk is better when sorting is just one step in processing'},
+  ],
+  'ps|top': [
+    {use:'ps','when':'Scripting — capture a snapshot of processes at this moment to filter/process'},
+    {use:'top','when':'Interactive monitoring — watching CPU/memory usage live, killing runaway processes'},
+    {note:'ps is static (snapshot); top is dynamic (live updating). ps for scripts, top for debugging slow systems'},
+  ],
+  'df|du': [
+    {use:'df','when':'Checking overall disk space — how full is each mounted filesystem/partition'},
+    {use:'du','when':'Finding what is using space — which directory or file is the biggest'},
+    {note:'df shows free space on disks; du shows space used by directories. Use df first, then du to find the culprit'},
+  ],
+  'chmod|chown': [
+    {use:'chmod','when':'Changing what operations are allowed (read/write/execute) on a file'},
+    {use:'chown','when':'Changing who owns a file or which group it belongs to'},
+    {note:'chmod controls the permission bits; chown controls the ownership. Both affect access but answer different questions'},
+  ],
+  'echo|cat': [
+    {use:'echo','when':'Printing text, variable values, or creating files: echo "text" > file.txt'},
+    {use:'cat','when':'Displaying existing file contents, or combining multiple files'},
+    {note:'echo generates new text; cat reads existing files. echo > creates files, cat reads them'},
+  ],
+  'wc|awk': [
+    {use:'wc','when':'Quickly counting lines, words or bytes in a file or pipeline output'},
+    {use:'awk','when':'Counting with conditions — count only lines matching a pattern, or sum a column'},
+    {note:'wc -l is the fastest line counter; awk gives you conditional counting and aggregation'},
+  ],
+  'tar|cp': [
+    {use:'cp','when':'Copying files or directories locally — simple, no compression'},
+    {use:'tar','when':'Archiving multiple files into one bundle, especially with compression for backups or transfer'},
+    {note:'cp copies; tar bundles and optionally compresses. For backups or sending many files, tar is standard'},
+  ],
+  'ssh|curl': [
+    {use:'ssh','when':'Logging into a remote server to run commands interactively or execute a script'},
+    {use:'curl','when':'Making HTTP/HTTPS requests — download files, call APIs, test web endpoints'},
+    {note:'ssh is for remote shell access; curl is for HTTP data transfer. Different protocols, different purposes'},
+  ],
+};
+
+let cheatsheetPrevPage = null;
+
+function renderCompare() {
+  const c = document.getElementById('compareContent');
+  if (!c) return;
+
+  const cmdKeys = Object.keys(COMMANDS).filter(k => COMMANDS[k] && COMMANDS[k].purpose);
+  
+  c.innerHTML = `
+    <div class="compare-picker">
+      <div>
+        <label>First Command</label>
+        <select class="compare-select" id="cmpA">
+          <option value="">— select —</option>
+          ${cmdKeys.map(k => '<option value="' + k + '">' + k + '</option>').join('')}
+        </select>
+      </div>
+      <div>
+        <label>Second Command</label>
+        <select class="compare-select" id="cmpB">
+          <option value="">— select —</option>
+          ${cmdKeys.map(k => '<option value="' + k + '">' + k + '</option>').join('')}
+        </select>
+      </div>
+      <button class="compare-btn" onclick="doCompare()">Compare ⚖️</button>
+      <button class="compare-btn clear" onclick="clearCompare()">Clear</button>
+    </div>
+    <div style="margin-bottom:20px">
+      <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Popular Comparisons</div>
+      <div class="compare-quick-list">
+        ${COMPARE_PAIRS.map(([a,b]) =>
+          '<span class="compare-quick-btn" onclick="quickCompare(\'' + a + '\',\'' + b + '\')">' + a + ' vs ' + b + '</span>'
+        ).join('')}
+      </div>
+    </div>
+    <div id="compareResult">
+      <div class="compare-empty"><div class="big">⚖️</div><div>Select two commands to compare</div></div>
+    </div>
+  `;
+}
+
+function quickCompare(a, b) {
+  document.getElementById('cmpA').value = a;
+  document.getElementById('cmpB').value = b;
+  doCompare();
+}
+
+function clearCompare() {
+  document.getElementById('cmpA').value = '';
+  document.getElementById('cmpB').value = '';
+  document.getElementById('compareResult').innerHTML = '<div class="compare-empty"><div class="big">⚖️</div><div>Select two commands to compare</div></div>';
+}
+
+function doCompare() {
+  const a = document.getElementById('cmpA').value;
+  const b = document.getElementById('cmpB').value;
+  if (!a || !b) { alert('Please select both commands'); return; }
+  if (a === b) { alert('Select two different commands'); return; }
+  const ca = COMMANDS[a], cb = COMMANDS[b];
+  if (!ca || !cb) return;
+
+  const key = a + '|' + b;
+  const keyR = b + '|' + a;
+  const verdicts = COMPARE_VERDICTS[key] || COMPARE_VERDICTS[keyR] || null;
+
+  const ex = (cmd) => cmd.examples && cmd.examples[0] ? cmd.examples[0].cmd : (cmd.example ? cmd.example.cmd : cmd.syntax || '');
+  const flags = (cmd) => cmd.options ? cmd.options.slice(0,4).map(o => o.o + ' — ' + o.d).join('<br>') : (cmd.flags ? cmd.flags.slice(0,4).join('<br>') : '—');
+
+  const rows = [
+    { label: 'Category',   va: ca.cat,                          vb: cb.cat },
+    { label: 'Purpose',    va: ca.purpose,                      vb: cb.purpose },
+    { label: 'Syntax',     va: ca.syntax,    mono: true,         vb: cb.syntax },
+    { label: 'Example',    va: ex(ca),       mono: true,         vb: ex(cb) },
+    { label: 'Key flags',  va: flags(ca),    html: true,         vb: flags(cb) },
+    { label: 'Works with pipe', va: ['grep','sed','awk','cut','sort','uniq','wc','tr','head','tail','comm','diff'].includes(a)?'Yes':'Limited',
+                                vb: ['grep','sed','awk','cut','sort','uniq','wc','tr','head','tail','comm','diff'].includes(b)?'Yes':'Limited' },
+    { label: 'Modifies files',  va: ['cp','mv','rm','sed','chmod','chown','touch','mkdir','tar'].includes(a)?'Yes':'No',
+                                vb: ['cp','mv','rm','sed','chmod','chown','touch','mkdir','tar'].includes(b)?'Yes':'No' },
+    { label: 'Use in scripts',  va: ['find','grep','sed','awk','cut','sort','chmod','ps','df'].includes(a)?'Common':'Yes',
+                                vb: ['find','grep','sed','awk','cut','sort','chmod','ps','df'].includes(b)?'Common':'Yes' },
+  ];
+
+  let html = '<div class="compare-grid">';
+  // Headers
+  html += '<div class="compare-col"><div class="compare-col-header">$ ' + a + '</div>';
+  rows.forEach(r => {
+    const val = r.html ? r.va : (r.mono ? '<span class="mono">' + escHtml(r.va||'—') + '</span>' : escHtml(r.va||'—'));
+    html += '<div class="compare-row"><div class="compare-row-label">' + r.label + '</div><div class="compare-row-val">' + val + '</div></div>';
+  });
+  html += '</div>';
+  html += '<div class="compare-col"><div class="compare-col-header">$ ' + b + '</div>';
+  rows.forEach(r => {
+    const val = r.html ? r.vb : (r.mono ? '<span class="mono">' + escHtml(r.vb||'—') + '</span>' : escHtml(r.vb||'—'));
+    html += '<div class="compare-row"><div class="compare-row-label">' + r.label + '</div><div class="compare-row-val">' + val + '</div></div>';
+  });
+  html += '</div></div>';
+
+  // Verdict section
+  if (verdicts) {
+    html += '<div class="compare-verdict"><h3>🎯 When to use which</h3>';
+    verdicts.forEach(v => {
+      if (v.note) {
+        html += '<div class="verdict-row"><span class="verdict-badge" style="color:var(--yellow)">💡 Note</span><div class="verdict-text">' + escHtml(v.note) + '</div></div>';
+      } else {
+        html += '<div class="verdict-row"><span class="verdict-badge">use ' + escHtml(v.use) + '</span><div class="verdict-text">' + escHtml(v.when) + '</div></div>';
+      }
+    });
+    html += '</div>';
+  }
+
+  // Quick links
+  html += '<div style="display:flex;gap:10px;flex-wrap:wrap">'
+    + '<button class="btn btn-secondary btn-small" onclick="openCommandDetail(\'' + a + '\');navigate(\'cmddetail\')">' + a + ' full docs →</button>'
+    + '<button class="btn btn-secondary btn-small" onclick="openCommandDetail(\'' + b + '\');navigate(\'cmddetail\')">' + b + ' full docs →</button>'
+    + '</div>';
+
+  document.getElementById('compareResult').innerHTML = html;
+  document.getElementById('compareResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// =================== CHEAT SHEET PAGE ===================
+function renderCheatsheet() {
+  const c = document.getElementById('cheatsheetContent');
+  if (!c || c.dataset.rendered) return;
+  c.dataset.rendered = '1';
+
+  const bycat = {};
+  Object.entries(COMMANDS).forEach(([name, cmd]) => {
+    if (!cmd || !cmd.purpose) return;
+    if (!bycat[cmd.cat]) bycat[cmd.cat] = [];
+    bycat[cmd.cat].push([name, cmd]);
+  });
+
+  const catIcons = { 'Basic':'⚡', 'Filter':'🔍', 'Intermediate':'🔧', 'Advanced':'🚀', 'Scripting':'📜' };
+
+  let html = '<div class="cs-search-wrap"><input class="cs-search" id="csSearch" placeholder="🔍  Filter commands..." oninput="filterCheatsheet(this.value)"></div>';
+
+  Object.entries(bycat).forEach(([cat, cmds]) => {
+    html += '<div class="cs-cat-block" data-cat="' + escHtml(cat) + '">';
+    html += '<div class="cs-cat-label">' + (catIcons[cat] || '📁') + '  ' + cat + '</div>';
+    html += '<table class="cs-table">';
+    cmds.forEach(([name, cmd]) => {
+      const usage = cmd.examples && cmd.examples[0] ? cmd.examples[0].cmd : (cmd.example ? cmd.example.cmd : cmd.syntax || '');
+      html += '<tr class="cs-row" data-name="' + name + '" data-desc="' + escHtml((cmd.purpose||'').toLowerCase()) + '" onclick="csOpenCmd(\'' + name + '\')">'
+        + '<td class="cs-cmd">' + name + '</td>'
+        + '<td class="cs-desc">' + escHtml(cmd.purpose || '') + '</td>'
+        + '<td class="cs-usage">' + escHtml(usage.slice(0,45)) + '</td>'
+        + '<td class="cs-arrow">→</td>'
+        + '</tr>';
+    });
+    html += '</table></div>';
+  });
+
+  c.innerHTML = html;
+}
+
+function filterCheatsheet(val) {
+  const q = val.toLowerCase();
+  document.querySelectorAll('.cs-row').forEach(row => {
+    const name = row.dataset.name || '';
+    const desc = row.dataset.desc || '';
+    const show = !q || name.includes(q) || desc.includes(q);
+    row.style.display = show ? '' : 'none';
+  });
+  // Hide empty category blocks
+  document.querySelectorAll('.cs-cat-block').forEach(block => {
+    const visible = [...block.querySelectorAll('.cs-row')].some(r => r.style.display !== 'none');
+    block.style.display = visible ? '' : 'none';
+  });
+}
+
+function csOpenCmd(name) {
+  cheatsheetPrevPage = 'cheatsheet';
+  openCommandDetail(name);
+  navigate('cmddetail');
+}
+
 function loadInTerminal(cmd){
   navigate('terminal');
   if(!termInst)termInst=new Terminal('terminalBody');
